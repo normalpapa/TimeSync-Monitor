@@ -3,11 +3,11 @@
 
 int main()
 {
-    ntp_packet_t packet = {0};
-    packet.li_vn_mode = 0x23;
-
-    printf("NTP packet size: %lu bytes/n", sizeof(packet));
-    printf("li_vn_mpde field: 0x%X/n", packet.li_vn_mode);
-
+    ntp_result_t result;
+    if (ntp_query_once("pool.ntp.org", 1000, &result) == 0)
+    {
+        printf("Offset: %.3f ms\n", result.offset_s * 1000);
+        printf("Delay : %.3f ms\n", result.delay_s * 1000);
+    }
     return 0;
 }

@@ -18,4 +18,12 @@ typedef struct ntp
     uint64_t tx_ts;
 } __attribute__((packed)) ntp_packet_t;
 
+typedef struct
+{
+    double offset_s;
+    double delay_s;
+} ntp_result_t;
+
+int ntp_query_once(const char *host, int timeout_ms, ntp_result_t *out);
+
 #endif
