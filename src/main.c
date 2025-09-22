@@ -8,6 +8,13 @@ int main()
     {
         printf("Offset: %.3f ms\n", result.offset_s * 1000);
         printf("Delay : %.3f ms\n", result.delay_s * 1000);
+
+        ntp_log_sqlite("timesync.db", &result);
+    }
+
+    else
+    {
+        printf("NTP query failed\n");
     }
     return 0;
 }

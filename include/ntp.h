@@ -26,4 +26,6 @@ typedef struct
 
 int ntp_query_once(const char *host, int timeout_ms, ntp_result_t *out);
 
+int ntp_log_sqlite(const char *dbpath, const ntp_result_t *r);
+
 #endif

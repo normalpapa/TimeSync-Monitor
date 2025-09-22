@@ -15,6 +15,8 @@ static double ntp_to_unix_seconds(uint64_t ts)
     return (double)(sec - NTP_UNIX_EPOCH_DIFF) + frac / (double)(1ULL << 32);
 }
 
+int ntp_log_sqlite(const char *dbpath, const ntp_result_t *r);
+
 int ntp_query_once(const char *host, int timeout_ms, ntp_result_t *out)
 {
     int sockfd;
