@@ -24,8 +24,9 @@ typedef struct
     double delay_s;
 } ntp_result_t;
 
+// query NTP
 int ntp_query_once(const char *host, int timeout_ms, ntp_result_t *out);
-
+// push results into db
 int ntp_log_sqlite(const char *dbpath, const ntp_result_t *r);
 
 #endif
